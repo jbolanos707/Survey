@@ -28,3 +28,13 @@
 <a href='/'>Return to home page</a>
 <br>
 <a href='/surveys'>Add another survey</a>
+
+<br>
+
+<form action="/surveys/<%= @survey.id %>" method="post">
+
+  <br>
+  <div class="form-group">
+    <input name="_method" type="hidden" value="delete">
+    <button type="submit" class="btn-danger">Delete this survey</button>
+  </form>
