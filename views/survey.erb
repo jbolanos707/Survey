@@ -1,0 +1,30 @@
+<h2><%= @survey.name %></h2>
+
+<form action='/surveys/<%= @survey.id %>' method='post'>
+  <div class='form-group'>
+    <input id='survey_id' name='survey_id' type='hidden' value='<%= @survey.id %>'>
+    <input id='question' name='question' type='text' class='form-control'>
+    <label for='question'>Create A Question</label>
+</div>
+    <button type='submit'>Submit</button>
+</form>
+
+<br>
+<h3>Here are the questions currently in this survey:</h3>
+<br>
+
+
+<% if @survey.questions.any?() %>
+  <% @survey.questions.each() do |question| %>
+    <a href='/questions/<%= question.id %>'><%= question.content %></a>
+    <br>
+  <% end %>
+
+<% else %>
+  <h5>Your survey doesn't have any questions yet.</h5>
+<% end %>
+
+<br><br>
+<a href='/'>Return to home page</a>
+<br>
+<a href='/surveys'>Add another survey</a>

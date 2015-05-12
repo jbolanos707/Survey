@@ -1,0 +1,27 @@
+<h1>What would you like to name your survey?</h1>
+
+<form action="/surveys" method="post">
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input id="name" name="name" class="form-control" type="text" required>
+  </div>
+
+<button type="submit" class="btn-primary">Add survey</button>
+
+</form>
+
+<h3>Here are your current surveys.</h3>
+<h4>Click on a survey to make changes to it.</h4>
+
+<% if @surveys.any?() %>
+  <% @surveys.each() do |survey| %>
+    <a href="/surveys/<%= survey.id() %>"><%= survey.name() %></a>
+  <br>
+  <% end %>
+  <% else %>
+
+  <h4>You don't have any surveys yet.
+    <br>
+    <a href="/surveys">Add a new survey.</a></h4>
+
+  <% end %>

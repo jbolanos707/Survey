@@ -1,0 +1,22 @@
+<h1>Survey Monster</h1>
+
+<h3>Here are your current surveys.</h3>
+<h4>Click on a survey to see or make changes to it.</h4>
+
+<% if @surveys.any?() %>
+  <% @surveys.each() do |survey| %>
+    <a href="/surveys/<%= survey.id() %>"><%= survey.name() %></a>
+    <br>
+    <% end %>
+<% else %>
+
+
+<h4>You don't have any surveys yet.
+  <br>
+  <a href="/surveys">Add a new survey.</a></h4>
+
+<% end %>
+
+<br>
+
+<a href="/surveys">Add survey</a>
